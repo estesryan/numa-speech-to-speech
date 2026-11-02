@@ -1,4 +1,4 @@
-# Numa
+# Numa — Local Speech-to-Speech AI
 
 Numa is a local-first AI voice assistant. You talk to it out loud in your browser and it answers out loud, in real
 time, with every model running on your own Mac: speech recognition, the language model and speech synthesis.
@@ -34,7 +34,7 @@ How the parts work together: [docs/architecture.md](docs/architecture.md).
 
 | | Version | Needed for |
 |---|---|---|
-| Mac with Apple Silicon | a recent macOS release; tested only on recent Apple Silicon chips | the voice engine (MLX) |
+| Mac with Apple Silicon | a recent macOS release on a recent Apple Silicon chip; no other hardware is supported (see [Known limitations](#known-limitations)) | the voice engine (MLX) |
 | Memory | the engine itself uses about 8 GB, 11–14 GB with custom voices, on top of macOS and the browser | the voice engine |
 | [uv](https://docs.astral.sh/uv/) | 0.13+ (it installs Python 3.12 itself) | the voice engine |
 | Node.js / npm | 22 LTS / 10 | the frontend |
@@ -137,8 +137,10 @@ git-ignored, and holds reference recordings: keep it private. A fresh install st
 
 ## Known limitations
 
-- **Apple Silicon only:** the engine runs on MLX, so it needs a Mac with Apple Silicon. There is no Linux, Windows or
-  Intel Mac support.
+- **Apple Silicon only:** this release is configured and tested only on Apple Silicon Macs. The setup script refuses
+  other platforms, and the inference pipeline uses Apple Silicon-specific configuration (MLX models and runtime,
+  Mac-optimized pipeline settings). NVIDIA GPUs, CPU-only execution, Linux, Windows and Intel Macs are not supported.
+  Other hardware backends may be feasible in future, but none has been integrated or validated.
 - **One conversation at a time:** a second browser tab is refused while a conversation runs.
 - **Speakers and echo:** echo cancellation with laptop speakers has not been validated on real hardware. With
   speakers, Numa may hear itself and interrupt its own replies. Use headphones, or add `?halfDuplex` to the page URL
