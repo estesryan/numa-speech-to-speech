@@ -1,0 +1,130 @@
+{
+ "description": "Two interruptions in a row: each reply's heard part is measured from its own first audio, even though the first reply's queued audio was dropped.",
+ "sample_rate": 16000,
+ "steps": [
+  {
+   "event": {
+    "type": "response.created",
+    "response": {
+     "id": "r1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_item.added",
+    "response_id": "r1",
+    "item": {
+     "id": "a1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio_transcript.done",
+    "response_id": "r1",
+    "transcript": "That is a fascinating tension to explore. Why do you think people crave longer conversations today?"
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.delta",
+    "response_id": "r1",
+    "seconds": 6.0
+   }
+  },
+  {
+   "play_s": 3.5
+  },
+  {
+   "event": {
+    "type": "response.done",
+    "response": {
+     "id": "r1",
+     "status": "cancelled"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "input_audio_buffer.speech_started"
+   }
+  },
+  {
+   "event": {
+    "type": "response.created",
+    "response": {
+     "id": "r2"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_item.added",
+    "response_id": "r2",
+    "item": {
+     "id": "a2"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio_transcript.done",
+    "response_id": "r2",
+    "transcript": "Of course, go ahead. What would you like to ask me instead of that question?"
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.delta",
+    "response_id": "r2",
+    "seconds": 4.5
+   }
+  },
+  {
+   "play_s": 2.0
+  },
+  {
+   "event": {
+    "type": "response.done",
+    "response": {
+     "id": "r2",
+     "status": "cancelled"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "input_audio_buffer.speech_started"
+   }
+  }
+ ],
+ "expected": [
+  {
+   "type": "conversation.item.create",
+   "item": {
+    "type": "message",
+    "role": "user",
+    "content": [
+     {
+      "type": "input_text",
+      "text": "(The guest interrupts you. They heard you say: \"That is a fascinating tension to explore.\" Then they cut you off.)"
+     }
+    ]
+   }
+  },
+  {
+   "type": "conversation.item.create",
+   "item": {
+    "type": "message",
+    "role": "user",
+    "content": [
+     {
+      "type": "input_text",
+      "text": "(The guest interrupts you. They heard you say: \"Of course, go ahead.\" Then they cut you off.)"
+     }
+    ]
+   }
+  }
+ ]
+}

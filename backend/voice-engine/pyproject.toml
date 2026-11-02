@@ -1,0 +1,29 @@
+[project]
+name = "numa-voice-engine"
+version = "0.2.0"
+description = "Numa local voice engine: Hugging Face speech-to-speech on Apple Silicon, with Numa profiles, project-local models and fixes."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Upstream pipeline (VAD, STT, LLM, TTS, Realtime server and audio client), pinned to the validated release.
+    # It pins the Apple Silicon stack itself: mlx 0.32.3, mlx-lm 0.31.3, mlx-audio 0.4.7, torch 2.11.0.
+    "speech-to-speech==1.1.0",
+    "pyyaml>=6,<7",
+]
+
+[project.scripts]
+numa-voice = "numa_voice.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["numa_voice"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: needs downloaded models and the GPU; starts the voice engine (run with -m integration)"]
+addopts = "-m 'not integration'"

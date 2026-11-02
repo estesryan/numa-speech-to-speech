@@ -1,0 +1,61 @@
+{
+ "description": "The guest speaks only after the reply has played: the history is already right.",
+ "sample_rate": 16000,
+ "steps": [
+  {
+   "event": {
+    "type": "response.created",
+    "response": {
+     "id": "r1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_item.added",
+    "response_id": "r1",
+    "item": {
+     "id": "a1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio_transcript.done",
+    "response_id": "r1",
+    "transcript": "That is a fascinating tension to explore. Why do you think people crave longer conversations today?"
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.delta",
+    "response_id": "r1",
+    "seconds": 6.0
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.done",
+    "response_id": "r1"
+   }
+  },
+  {
+   "event": {
+    "type": "response.done",
+    "response": {
+     "id": "r1",
+     "status": "completed"
+    }
+   }
+  },
+  {
+   "play_s": 6.0
+  },
+  {
+   "event": {
+    "type": "input_audio_buffer.speech_started"
+   }
+  }
+ ],
+ "expected": []
+}

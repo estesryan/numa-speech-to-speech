@@ -1,0 +1,53 @@
+# Shared voice-engine configuration, in upstream speech-to-speech's YAML format (docs/configuration.md).
+# `numa-model:<id>[#file]` values are replaced with paths under the models root (see model-manifest.yaml).
+# Profiles (fast.yaml, quality.yaml) overlay this file. Render with: numa-voice config --profile fast
+schema_version: 1
+
+numa:
+  # models a profile needs even though no setting names them (loaded through TORCH_HOME / NLTK_DATA)
+  requires: [vad/silero-vad, text/nltk-data]
+  # Voice Studio (cloning and voice design); optional: features without them are shown as unavailable
+  optional: [tts/qwen3-tts-1.7b-base-6bit, tts/qwen3-tts-1.7b-voicedesign-6bit]
+  realtime:
+    # Browser origins allowed to open the Realtime WebSocket (NUMA_VOICE_ALLOWED_ORIGINS overrides, comma-separated)
+    allowed_origins: [http://localhost:3000, http://127.0.0.1:3000]
+    # Clients that send no Origin header (numa-voice talk, benchmarks, tests). Browsers always send one.
+    allow_missing_origin: true
+
+runtime:
+  log_level: INFO
+  log_transcripts: false   # set true to write full transcripts into the local log (benchmark quality review)
+
+blocks:
+  vad:
+    kind: vad
+    backend: silero
+    settings:
+      smart_turn_model_path: numa-model:vad/smart-turn-v3.2#smart-turn-v3.2-cpu.onnx
+      smart_turn_threshold: 0.5
+      smart_turn_incomplete_delay_ms: 600   # the hold behind the ~2.3 s latency tail; lower = snappier, more cut-offs
+      smart_turn_max_wait_ms: 2000
+  stt:
+    kind: stt
+    backend: parakeet-tdt
+    settings:
+      parakeet_tdt_model_name: numa-model:stt/parakeet-tdt-0.6b-v3
+  llm:
+    kind: llm
+    backend: mlx-lm
+    settings:
+      model_name: numa-model:llm/qwen3.5-4b-4bit
+      chat_size: 30            # user turns kept verbatim; older turns are summarized (compaction)
+      # init_chat_prompt is composed from the selected persona (personas/) plus engine instructions; never set here
+  tts:
+    kind: tts
+    backend: qwen3
+    settings:
+      qwen3_tts_model_name: numa-model:tts/qwen3-tts-1.7b-customvoice-6bit
+      qwen3_tts_speaker: Aiden   # built-in preset voice; no cloning
+
+pipelines:
+  numa:
+    options:
+      mac_optimal_settings: true
+    stages: {vad: vad, stt: stt, llm: llm, tts: tts}

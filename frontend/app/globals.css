@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * Numa design tokens:
+ *   background gradient  #182333 -> #111821 (diagonal)
+ *   wordmark             #ffffff, Inter 700, letter-spacing -1.5 at 45px (about -0.033em)
+ *   status dot           #7DDCC9
+ *   status label         #B5C1CE, Inter 400
+ *   waveform bars        #78DDC8, fully rounded, about 0.53 bar-to-pitch ratio
+ * Everything else (surfaces, borders, error) is derived from these at low intensity.
+ */
+:root {
+  color-scheme: dark;
+
+  --numa-navy: #182333;
+  --numa-navy-deep: #111821;
+  --numa-ink: #ffffff;
+  --numa-slate: #b5c1ce;
+  --numa-mint: #7ddcc9;
+  --numa-wave: #78ddc8;
+  --numa-coral: #e8a091;
+
+  --radius: 0.875rem;
+
+  --background: var(--numa-navy-deep);
+  --foreground: #e9eef3;
+  --card: color-mix(in oklab, var(--numa-navy) 82%, white 3%);
+  --card-foreground: var(--foreground);
+  --popover: var(--numa-navy);
+  --popover-foreground: var(--foreground);
+  --primary: var(--numa-mint);
+  --primary-foreground: #0e1a1f;
+  --secondary: color-mix(in oklab, var(--numa-slate) 10%, transparent);
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in oklab, var(--numa-slate) 8%, transparent);
+  --muted-foreground: color-mix(
+    in oklab,
+    var(--numa-slate) 82%,
+    var(--numa-navy-deep)
+  );
+  --accent: color-mix(in oklab, var(--numa-slate) 12%, transparent);
+  --accent-foreground: var(--foreground);
+  --destructive: var(--numa-coral);
+  --border: color-mix(in oklab, var(--numa-slate) 14%, transparent);
+  --input: color-mix(in oklab, var(--numa-slate) 18%, transparent);
+  --ring: var(--numa-mint);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-numa-navy: var(--numa-navy);
+  --color-numa-navy-deep: var(--numa-navy-deep);
+  --color-numa-ink: var(--numa-ink);
+  --color-numa-slate: var(--numa-slate);
+  --color-numa-mint: var(--numa-mint);
+  --color-numa-wave: var(--numa-wave);
+  --color-numa-coral: var(--numa-coral);
+
+  --font-sans:
+    var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Arial, sans-serif;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --ease-numa: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    background: var(--numa-navy-deep);
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* the brand's diagonal navy gradient */
+    background: linear-gradient(
+        141deg,
+        var(--numa-navy) 0%,
+        var(--numa-navy-deep) 100%
+      )
+      fixed;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--numa-mint) 30%, transparent);
+  }
+}
+
+/* Reduced motion: looping animations use motion-safe: / motion-reduce: variants, and the waveform reads
+   prefers-reduced-motion itself (hooks/use-reduced-motion.ts), so no global override is needed. */

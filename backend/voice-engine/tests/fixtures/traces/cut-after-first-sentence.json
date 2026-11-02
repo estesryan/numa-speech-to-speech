@@ -1,0 +1,69 @@
+{
+ "description": "Cut 3.5 s in: the first sentence was heard, the question after it was not and must not reach the history.",
+ "sample_rate": 16000,
+ "steps": [
+  {
+   "event": {
+    "type": "response.created",
+    "response": {
+     "id": "r1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_item.added",
+    "response_id": "r1",
+    "item": {
+     "id": "a1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio_transcript.done",
+    "response_id": "r1",
+    "transcript": "That is a fascinating tension to explore. Why do you think people crave longer conversations today?"
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.delta",
+    "response_id": "r1",
+    "seconds": 6.0
+   }
+  },
+  {
+   "play_s": 3.5
+  },
+  {
+   "event": {
+    "type": "response.done",
+    "response": {
+     "id": "r1",
+     "status": "cancelled"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "input_audio_buffer.speech_started"
+   }
+  }
+ ],
+ "expected": [
+  {
+   "type": "conversation.item.create",
+   "item": {
+    "type": "message",
+    "role": "user",
+    "content": [
+     {
+      "type": "input_text",
+      "text": "(The guest interrupts you. They heard you say: \"That is a fascinating tension to explore.\" Then they cut you off.)"
+     }
+    ]
+   }
+  }
+ ]
+}

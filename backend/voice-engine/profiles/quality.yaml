@@ -1,0 +1,7 @@
+# Optional profile: Qwen3.5-9B (MLX 4-bit). Warmer replies; ~0.15 s slower, ~11.3 GB, longer replies.
+numa:
+  description: Qwen3.5-9B 4-bit, optional
+blocks:
+  llm:
+    settings:
+      model_name: numa-model:llm/qwen3.5-9b-4bit

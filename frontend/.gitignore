@@ -1,0 +1,28 @@
+# Frontend ignore rules. They repeat the root .gitignore's frontend entries because Biome
+# (biome.json: vcs.useIgnoreFile) reads ignore rules from this folder.
+
+# Dependencies
+/node_modules/
+
+# Build artifacts
+*.tsbuildinfo
+/.next/
+/.vercel/
+/build/
+/out/
+next-env.d.ts
+
+# Secrets and environment configuration
+.env*
+!.env.example
+*.pem
+
+# Generated files, logs and test outputs
+/coverage/
+/e2e/.generated/
+/playwright-report/
+/test-results/
+npm-debug.log*
+
+# Operating system
+.DS_Store

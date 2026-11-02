@@ -1,0 +1,15 @@
+{
+ "rate": 16000,
+ "voice": "preset-vivian",
+ "lines": {
+  "question": {
+   "text": "Ren, I'd love to hear your view. Why do you think long form conversations are becoming popular again, when everyone says attention spans are getting shorter?"
+  },
+  "barge": {
+   "text": "Sorry to jump in. Can I ask you something different?"
+  },
+  "barge_short": {
+   "text": "Wait, hold on."
+  }
+ }
+}

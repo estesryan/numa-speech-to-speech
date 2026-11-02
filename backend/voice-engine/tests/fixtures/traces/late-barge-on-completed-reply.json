@@ -1,0 +1,79 @@
+{
+ "description": "The reply finished generating (and entered the server history) but the guest cut in 4 s into playback: delete it, then note what was heard.",
+ "sample_rate": 16000,
+ "steps": [
+  {
+   "event": {
+    "type": "response.created",
+    "response": {
+     "id": "r1"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_item.added",
+    "response_id": "r1",
+    "item": {
+     "id": "item_A"
+    }
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio_transcript.done",
+    "response_id": "r1",
+    "transcript": "That is a fascinating tension to explore. Why do you think people crave longer conversations today?"
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.delta",
+    "response_id": "r1",
+    "seconds": 6.0
+   }
+  },
+  {
+   "event": {
+    "type": "response.output_audio.done",
+    "response_id": "r1"
+   }
+  },
+  {
+   "event": {
+    "type": "response.done",
+    "response": {
+     "id": "r1",
+     "status": "completed"
+    }
+   }
+  },
+  {
+   "play_s": 4.0
+  },
+  {
+   "event": {
+    "type": "input_audio_buffer.speech_started"
+   }
+  }
+ ],
+ "expected": [
+  {
+   "type": "conversation.item.delete",
+   "item_id": "item_A"
+  },
+  {
+   "type": "conversation.item.create",
+   "item": {
+    "type": "message",
+    "role": "user",
+    "content": [
+     {
+      "type": "input_text",
+      "text": "(The guest interrupts you. They heard you say: \"That is a fascinating tension to explore.\" Then they cut you off.)"
+     }
+    ]
+   }
+  }
+ ]
+}

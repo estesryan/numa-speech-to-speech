@@ -1,0 +1,71 @@
+# Numa ignore rules for the whole repository. frontend/.gitignore repeats the frontend entries for Biome.
+# A leading "/" anchors a pattern to the repository root; other patterns match at any depth.
+
+# Dependencies and virtual environments
+.venv/
+node_modules/
+venv/
+
+# Build artifacts
+*.egg-info/
+*.tsbuildinfo
+.next/
+.vercel/
+build/
+dist/
+next-env.d.ts
+out/
+
+# Downloaded models: fetched by `numa-voice models download`, pinned in backend/voice-engine/model-manifest.yaml
+/models/
+*.gguf
+*.npz
+*.onnx
+*.pt
+*.pth
+*.safetensors
+
+# Local application data: Voice Studio voices (reference recordings, profiles, settings) and local databases
+/data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Audio: recordings and generated speech (tests generate their speech at run time; no audio is committed)
+recordings/
+*.flac
+*.m4a
+*.mp3
+*.wav
+
+# Secrets and environment configuration
+.env*
+!.env.example
+*.key
+*.pem
+
+# Generated files, caches, logs and test outputs
+# (rendered profiles contain absolute model paths; benchmark logs can contain full transcripts)
+__pycache__/
+*.log
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+backend/voice-engine/.generated/
+backend/voice-engine/bench-data/
+backend/voice-engine/results/
+coverage/
+frontend/e2e/.generated/
+frontend/playwright-report/
+frontend/test-results/
+npm-debug.log*
+
+# Editors, operating system and temporary files
+*.swp
+*.tmp
+*~
+.DS_Store
+.claude/settings.local.json
+.idea/
+.vscode/

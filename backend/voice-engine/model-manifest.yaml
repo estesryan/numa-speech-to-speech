@@ -1,0 +1,927 @@
+# Numa voice-engine model manifest: every model, its pinned source, license and project-local path.
+# Paths are relative to the models root: <project>/models by default, or $NUMA_MODELS_DIR.
+# `files` (size + SHA-256) is written by `numa-voice models lock` and checked by `numa-voice models verify`.
+schema: 1
+models:
+  vad/silero-vad:
+    component: vad
+    description: Silero VAD v5, loaded by upstream through torch.hub ("snakers4/silero-vad:master")
+    source:
+      type: github-archive
+      repo: snakers4/silero-vad
+      revision: 066409f3d9db45a30d21dfcbf9147826ffdd7052
+    install_as: torch-home/hub/snakers4_silero-vad_master
+    format: TorchScript / ONNX (bundled in the repository)
+    quantization: none
+    license: MIT
+    path: vad/silero-vad
+    files:
+      torch-home/hub/snakers4_silero-vad_master/.github/ISSUE_TEMPLATE/bug_report.md:
+        size: 1276
+        sha256: 838e58d3039c5eade216dd8caac4ef7e823203f5686eaf39ed62817530ae746f
+      torch-home/hub/snakers4_silero-vad_master/.github/ISSUE_TEMPLATE/feature_request.md:
+        size: 755
+        sha256: 7de51a6efb528d29eaa7a0c6364c05849d518102c24eefcfdcaa11338b442eb9
+      torch-home/hub/snakers4_silero-vad_master/.github/ISSUE_TEMPLATE/questions---help---support.md:
+        size: 335
+        sha256: 061d6ca1262f97c9460b769f041a2d73b7eddd86733a1d2bd44b637c564d3c6a
+      torch-home/hub/snakers4_silero-vad_master/.github/workflows/python-publish.yml:
+        size: 1061
+        sha256: 63f2a37d1f8f683ba9e3672ba48f5b81f277b35039d0bdf24c1937accf5203c8
+      torch-home/hub/snakers4_silero-vad_master/.github/workflows/test.yml:
+        size: 2284
+        sha256: d358f62320a79dd9b92b12efd50edae557841650ea88583f67a26b4e00302e29
+      torch-home/hub/snakers4_silero-vad_master/.gitignore:
+        size: 693
+        sha256: 9d3c43ecc95137fc4d1c88df4ceaae256fc7ba2d55a06c01e890d4e6b52214cb
+      torch-home/hub/snakers4_silero-vad_master/CITATION.cff:
+        size: 728
+        sha256: dd9981387b59cf75853e0f2b7f7f79e8a694f3bf6aaa17dc9bcc72e70356477f
+      torch-home/hub/snakers4_silero-vad_master/CODE_OF_CONDUCT.md:
+        size: 3349
+        sha256: 216247a1f9d0f9bd5daa7ba7f2957c42f3c8ea39a315dbc0a883f62ec8f17666
+      torch-home/hub/snakers4_silero-vad_master/LICENSE:
+        size: 1075
+        sha256: 2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b
+      torch-home/hub/snakers4_silero-vad_master/README.md:
+        size: 9725
+        sha256: cd0ee56c91b8042e62a714c0c94bc8b74dbea127a483e390f8033bb8ec8cec78
+      torch-home/hub/snakers4_silero-vad_master/datasets/README.md:
+        size: 7496
+        sha256: 603353a37ec3351f0463307f0c5377eefb98547e2463defb889e5f5930a5536a
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/README.md:
+        size: 1729
+        sha256: 4874ad0ec4d21dc2e7d981d523ac98c95792d6ae57773c2da0d24e11f7185811
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/aepyx.wav:
+        size: 5412908
+        sha256: a622cb1cdd8a52db84b0d4bb524fa9a93f9ed387de40530f87c3a57d7493fd49
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/aepyx_8k.wav:
+        size: 2706476
+        sha256: 3b36a5347bdad20ff72fb9e2613e4214d25f981c56b51ca17704f087b84fddc6
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/main.cc:
+        size: 1672
+        sha256: b51075d99f6001449335b7f52f74fa3860d3d5c3e2cecbef9c1e73cdd0d32087
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/silero.cc:
+        size: 10646
+        sha256: 39aed6dce7a1c05000f4305134be07b6ee28e1ffad70ee3c996a37d3d8bc29a5
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/silero.h:
+        size: 3986
+        sha256: ff37646d0aa859b7c96739bbfb6b4da7c53e945bda571d5fb1a4dbf0d6697687
+      torch-home/hub/snakers4_silero-vad_master/examples/c++/wav.h:
+        size: 7279
+        sha256: 04bd8d3a8b849ad2dc099fcaff5dff0da76592cefd954cc17185331b180a2c45
+      torch-home/hub/snakers4_silero-vad_master/examples/colab_record_example.ipynb:
+        size: 7648
+        sha256: e9c994372b93e2032fb4e4341e44a6027439d78c44976fd75d3249e18ed486f1
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp/README.md:
+        size: 1369
+        sha256: c912df4b005a493d8092f3843e6592ccdca95e0f5b0a2171fcbfa30f234e59e4
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp/silero-vad-onnx.cpp:
+        size: 18782
+        sha256: dcd7ab46126d7201c495fae2349fb956e81aba00220dc185838df122104612c7
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp/wav.h:
+        size: 7298
+        sha256: 75e73e37f3f3e33d7239e51b529d5165f27bcc6273fb52710402d81c7b11dcae
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/README.md:
+        size: 2022
+        sha256: 11c49c5dace8473818aa3be9c5662abc8dff753dbe724dc4ae6250b83aff5288
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/aepyx.wav:
+        size: 5412942
+        sha256: d6aed597425ea4ce852db919912906e45471acd74e18ed3046360cbc3f06c27b
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/main.cc:
+        size: 1428
+        sha256: af41235e0a4ec44cb8321d3793993cdc718118439362d7cefb1d046c0296b5b2
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/silero:
+        size: 581928
+        sha256: f5b2fa15458ca5bf961042b2157f4b81481a6e9819c4b32f886f9251dc31563b
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/silero_torch.cc:
+        size: 9607
+        sha256: a58aabc000caf6f190c55625d835ca0ae6f09a5dd2cac900b144cb3b174da8e3
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/silero_torch.h:
+        size: 1779
+        sha256: c4f4d89723e065a4d4df5a7bda22f839eaa9af4b97f50a59817f82b2d69c94e5
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch/wav.h:
+        size: 7279
+        sha256: 65a200886095c998eec13900973876572a08a2d0c5f9ea7b00bd35f2973fe6b6
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/README.md:
+        size: 2022
+        sha256: 11c49c5dace8473818aa3be9c5662abc8dff753dbe724dc4ae6250b83aff5288
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/aepyx.wav:
+        size: 5412942
+        sha256: d6aed597425ea4ce852db919912906e45471acd74e18ed3046360cbc3f06c27b
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/main.cc:
+        size: 1428
+        sha256: af41235e0a4ec44cb8321d3793993cdc718118439362d7cefb1d046c0296b5b2
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/silero:
+        size: 581928
+        sha256: f5b2fa15458ca5bf961042b2157f4b81481a6e9819c4b32f886f9251dc31563b
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/silero_torch.cc:
+        size: 9607
+        sha256: a58aabc000caf6f190c55625d835ca0ae6f09a5dd2cac900b144cb3b174da8e3
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/silero_torch.h:
+        size: 1779
+        sha256: c4f4d89723e065a4d4df5a7bda22f839eaa9af4b97f50a59817f82b2d69c94e5
+      torch-home/hub/snakers4_silero-vad_master/examples/cpp_libtorch_deprecated/wav.h:
+        size: 7279
+        sha256: 65a200886095c998eec13900973876572a08a2d0c5f9ea7b00bd35f2973fe6b6
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/Program.cs:
+        size: 1275
+        sha256: 863e88b3a1eb496fdedd22820bd8bcdc45369e0c63204b91a1afaa4386d7f9da
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/SileroSpeechSegment.cs:
+        size: 522
+        sha256: 5a9917e9c83021404b5a49cba4ef54a50468ae209bf8b9037487a4365db26cfb
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/SileroVadDetector.cs:
+        size: 8926
+        sha256: 33f46cf85dd8108acb86da0744483ea3d23ec1cfd507eb2e369bfe042fa612ac
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/SileroVadOnnxModel.cs:
+        size: 6177
+        sha256: dca90558149d4be15184a80385e886a44dcb9e90ecade9da66ea93fd1c176455
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/VadDotNet.csproj:
+        size: 675
+        sha256: 881fd1d1647ea781e50d16c9bf8c0850a10bd8e6195a605a4a5bdfe883a283b1
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/VadDotNet.sln:
+        size: 1105
+        sha256: 6e4cc97b9828a5b3a715ed6c6fe422690f4d309208f301faacbc8fe863b6d920
+      torch-home/hub/snakers4_silero-vad_master/examples/csharp/resources/put_model_here.txt:
+        size: 58
+        sha256: 576203b57768b84f12e4f8a137a2e084dbdf0b75fbd77f1a8358ab4305be319d
+      torch-home/hub/snakers4_silero-vad_master/examples/go/README.md:
+        size: 333
+        sha256: c561f2f92d64bcf4a52b7e2e2de25266b62fc410fbed23925d8d7b72ac8aaafd
+      torch-home/hub/snakers4_silero-vad_master/examples/go/cmd/main.go:
+        size: 1271
+        sha256: cee81f9296f5baf491ce45469be361f6226172b3399fa88b9ab11e368959bda4
+      torch-home/hub/snakers4_silero-vad_master/examples/go/go.mod:
+        size: 218
+        sha256: fa075afa55942727467ded19b540ddcf75db2a001d5f953e46f8c48a428f2b73
+      torch-home/hub/snakers4_silero-vad_master/examples/go/go.sum:
+        size: 1551
+        sha256: 1d941ecfdb03b7a4f2f51012f928ef9b7c1938f3b5b6b3c840663aab44367a9b
+      torch-home/hub/snakers4_silero-vad_master/examples/haskell/README.md:
+        size: 420
+        sha256: ac9065f5aedc0155c59a1f97d4f949cf313b74122567432f83d7c1feab2b5ae6
+      torch-home/hub/snakers4_silero-vad_master/examples/haskell/app/Main.hs:
+        size: 537
+        sha256: cf7da6c2e5a7d73242b565e5aa24b637e038b9af6ff33f032565a6d52b95c99b
+      torch-home/hub/snakers4_silero-vad_master/examples/haskell/example.cabal:
+        size: 649
+        sha256: 3de0377572a072ac9233fef68113d657a8519853119bb14e30d549f61f9cb442
+      torch-home/hub/snakers4_silero-vad_master/examples/haskell/package.yaml:
+        size: 435
+        sha256: 21e7c7b96cf36203c1fe078b76d210ae7418bb1d4f9258e5b64c3fe12e8256a4
+      torch-home/hub/snakers4_silero-vad_master/examples/haskell/stack.yaml:
+        size: 531
+        sha256: 305887dc2d15d1178ad0275fcad4d33cbc5a74b6274cf4a551191e161820dc91
+      torch-home/hub/snakers4_silero-vad_master/examples/haskell/stack.yaml.lock:
+        size: 1948
+        sha256: 62f31a1d3f9167e1f3627539dbfb7a46a1983f0d8e194b88904cf4c435dcb5b6
+      torch-home/hub/snakers4_silero-vad_master/examples/java-example/pom.xml:
+        size: 1105
+        sha256: 1aaac050ffee4d97b30dfc70de202ba0bd06da337d80917e75cb6dee9b19eb76
+      torch-home/hub/snakers4_silero-vad_master/examples/java-example/src/main/java/org/example/App.java:
+        size: 10507
+        sha256: 1089deb76157a6b0a35b7f1fd311ba86922bd3a6ead46279b12d96d70b4ac4d5
+      torch-home/hub/snakers4_silero-vad_master/examples/java-example/src/main/java/org/example/SlieroVadDetector.java:
+        size: 5494
+        sha256: 81534ed59133a8118e8ab0dc08c03aaeace0fab0fb200ce92d78b872c13bb2b8
+      torch-home/hub/snakers4_silero-vad_master/examples/java-example/src/main/java/org/example/SlieroVadOnnxModel.java:
+        size: 7254
+        sha256: aa9159cf2219b018dd566aecd9e533bb811485bd0947750c2f89ead99a5267cf
+      torch-home/hub/snakers4_silero-vad_master/examples/java-wav-file-example/src/main/java/org/example/App.java:
+        size: 1599
+        sha256: d454f388ca1230c87d2480ad4913b7c91fd44e6f436e40ecf963d0448d2861e4
+      ? torch-home/hub/snakers4_silero-vad_master/examples/java-wav-file-example/src/main/java/org/example/SileroSpeechSegment.java
+      : size: 1158
+        sha256: 69eecb8a7e033e6b1e971318bd2691da6ad82417b28e3d437d9c804c6b590299
+      torch-home/hub/snakers4_silero-vad_master/examples/java-wav-file-example/src/main/java/org/example/SileroVadDetector.java:
+        size: 10556
+        sha256: 381a2a6b3b768b36e828979803d65ff02e8274506906bfdf9ebf93accaec7e39
+      torch-home/hub/snakers4_silero-vad_master/examples/java-wav-file-example/src/main/java/org/example/SileroVadOnnxModel.java:
+        size: 7599
+        sha256: 0625123e9202542c017c26fe23087934b802e5dba94a3789d5ab5a59495b705d
+      torch-home/hub/snakers4_silero-vad_master/examples/microphone_and_webRTC_integration/README.md:
+        size: 820
+        sha256: 46374787966a54c80857b03bf9256fbe9cbf6b279c8a183bb3a78caa3552d839
+      torch-home/hub/snakers4_silero-vad_master/examples/microphone_and_webRTC_integration/microphone_and_webRTC_integration.py:
+        size: 8535
+        sha256: d1628b83eb8a1f84d038499a9c7eda962d6f2684b722bd2167a081fa3666d373
+      torch-home/hub/snakers4_silero-vad_master/examples/onnx_sequence/README.md:
+        size: 3690
+        sha256: 970bae202a4ab5b3a90b47e1e82158238cbc7113709b3c2c1ba91d69c829eff9
+      torch-home/hub/snakers4_silero-vad_master/examples/onnx_sequence/export.py:
+        size: 6679
+        sha256: 5e0889ac5a84d8b0bb0bee178e1febde50397484dc96bf2d93a66eb8eae973c3
+      torch-home/hub/snakers4_silero-vad_master/examples/onnx_sequence/run.py:
+        size: 8174
+        sha256: b45355bec6451b07043bc352b6f890fab72c203b3708318502f833dec4e80045
+      torch-home/hub/snakers4_silero-vad_master/examples/openvino/README.md:
+        size: 6865
+        sha256: afb6c97107fca4a028f22ada74ab01c8287b45277fdfbdf2916d2d8f572f9dce
+      torch-home/hub/snakers4_silero-vad_master/examples/openvino/convert.py:
+        size: 10293
+        sha256: 4ed304326aebcffacfbbf9a342a0812953e89acfc76335299af39e5275c8cc6b
+      torch-home/hub/snakers4_silero-vad_master/examples/openvino/verify.py:
+        size: 7094
+        sha256: f211740338aa558220d194d8cb9dd1ed6c6be502657af5ae201f168647e5d29c
+      torch-home/hub/snakers4_silero-vad_master/examples/parallel_example.ipynb:
+        size: 4250
+        sha256: 34a990d7b4aee8ab09469565034fce015772dcf9ba33c50ce6969254edb87592
+      torch-home/hub/snakers4_silero-vad_master/examples/pyaudio-streaming/README.md:
+        size: 866
+        sha256: 1ae63cbddfdc54a5a0af525b6dbb13d5dcbc1f36cc247c29feb0e6995f0185d7
+      torch-home/hub/snakers4_silero-vad_master/examples/pyaudio-streaming/pyaudio-streaming-examples.ipynb:
+        size: 9153
+        sha256: c885e43f025f4fe4c69e54b3956ef40d1290ca9425e33fd4a18374cfc992846c
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/.gitignore:
+        size: 20
+        sha256: 87871cf70e846ad574df943e50f59d6ccfcdb501d6517ec228b714e4994fea09
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/Cargo.lock:
+        size: 21892
+        sha256: a1415ffef47fa0d6254dba496e4b43df7f6b0fd6757e91737de45391b14300df
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/Cargo.toml:
+        size: 171
+        sha256: 85aa11c75bdbd9e67fe868fe29e55f531b46c78c1de068711e7298f4316a5a70
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/README.md:
+        size: 496
+        sha256: 46ecdf442525e4e912c8f349431d7787d3c0cc6d150ac4811cafcdb226eb4188
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/src/main.rs:
+        size: 1310
+        sha256: 1d4ff80632fc609ed99030e5af2b9c81d8a26bfdc79cb0af5c9e406c3c141091
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/src/silero.rs:
+        size: 2942
+        sha256: 8d1b00124206f96b1b0c18bab6c53c8ae6f90e94e7e93e310c5c5f9edcec5bcd
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/src/utils.rs:
+        size: 1407
+        sha256: 296eabc14c137d5575384b8bbfb81c3c754d667b926ff58f902751453832393a
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-example/src/vad_iter.rs:
+        size: 7413
+        sha256: ae2b8799fcb89b800198d86b82f6b0f7cb70f81cc5645089c234aa18163fc0c0
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-wav-processing-with-wavekat-vad/.gitignore:
+        size: 21
+        sha256: 5d77fbb6e90fb09e55e21161fd11333b862e409c994ee8593131ad3ae0a97401
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-wav-processing-with-wavekat-vad/Cargo.lock:
+        size: 31517
+        sha256: 1fdafd48875a6bd75ecbbe58ca81083bbbdae78b8e21416fa0e03660f67f661a
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-wav-processing-with-wavekat-vad/Cargo.toml:
+        size: 207
+        sha256: f43ce000cb1b7e923fe07eac64ea56b11a9d842bce89b2f3fa86aee11611c8b2
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-wav-processing-with-wavekat-vad/README.md:
+        size: 918
+        sha256: 0d5ff7e0c34ec1b60c85233f2663a858de55360b691ce570874cad4d4f2731b1
+      torch-home/hub/snakers4_silero-vad_master/examples/rust-wav-processing-with-wavekat-vad/src/main.rs:
+        size: 2627
+        sha256: 13b7cbec9d5d88691e89fcad64b31a085ff5aefeff1c0d584102b607d03a43c2
+      torch-home/hub/snakers4_silero-vad_master/files/silero_logo.jpg:
+        size: 23875
+        sha256: 997ebb29131f24871c8299ffabbf168712f9ffffb0546f89be235a57efce4f96
+      torch-home/hub/snakers4_silero-vad_master/hubconf.py:
+        size: 1978
+        sha256: 2637a3a91d061a6e921853f5de5430f873c292662b46e5fd61edaf648b4ae5bd
+      torch-home/hub/snakers4_silero-vad_master/pyproject.toml:
+        size: 1945
+        sha256: 2aa7fecb20eb9c9feaf22ae31421f904f85d7b939c03d17d12c0113fea49e32f
+      torch-home/hub/snakers4_silero-vad_master/silero-vad.ipynb:
+        size: 6041
+        sha256: d11a53290f594af3a73ee203555bbc8a0dab8735e93736f708ff3bbd16f6e9a2
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/__init__.py:
+        size: 1288
+        sha256: 45fcf7e268eb0ba83ccee737b1a86cc94d7cf7487e2a1c0a31b9b72b899201f1
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/__init__.py:
+        size: 0
+        sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad.jit:
+        size: 2272526
+        sha256: e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad.onnx:
+        size: 2327524
+        sha256: 1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad_16k.safetensors:
+        size: 1239748
+        sha256: c59271c284ae9c8335d795d60e0bfdb71aaaceec578d9bd9ffc1b8153c319ea1
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad_16k_op15.onnx:
+        size: 1289603
+        sha256: 7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad_16k_sequence.onnx:
+        size: 1246165
+        sha256: 9ccdacc4719d8aa7e45a77536bfabec45a03ba1f2fad5e241ab4060b24238a85
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad_half.onnx:
+        size: 1280395
+        sha256: 1e0b195ad4806595ef4466f419d16fca7e4afcfc6669b8c0b5f76ea87547c769
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad_op18_ifless.onnx:
+        size: 2845718
+        sha256: 7671cd04b004e9076da0d4a7b1a5aec36adf161c39230c1cb94a4fd5db6bbd28
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/data/silero_vad_openvino_16k.onnx:
+        size: 1288203
+        sha256: 7776b81ad1b0350c15d7f1555943b9232eb53e9ca5d989c6d0cea9ebc8664d87
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/model.py:
+        size: 1504
+        sha256: 40762a80d1278605480f75f90c6510c1a4ab71bd230f45c334e4f9c5e402181d
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/sequence_vad.py:
+        size: 8655
+        sha256: c8b6e1194e36a5721a8f1ac6674e07f78c8a892c7585c51c9f9b40068cf34fbd
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/tinygrad_model.py:
+        size: 2563
+        sha256: 79afb8aae28bb9d20735df4053bef1191a85b74a0db335a5fc16c302ddda7e86
+      torch-home/hub/snakers4_silero-vad_master/src/silero_vad/utils_vad.py:
+        size: 31474
+        sha256: 7e0f9b3334ee4feb79abcf2251be12458329077bce28c8540878ed9d35e5aa6b
+      torch-home/hub/snakers4_silero-vad_master/tests/conftest.py:
+        size: 1992
+        sha256: c53caa3c7b0cc071b358d8a3e5a6529502ffcdcd299e47106f54fb453644509c
+      torch-home/hub/snakers4_silero-vad_master/tests/data/test.mp3:
+        size: 331987
+        sha256: 65a63b8ab116e80078cfc700ebec6d496b769c33bde72018ea41d535d4cfea0e
+      torch-home/hub/snakers4_silero-vad_master/tests/data/test.opus:
+        size: 24269
+        sha256: 8c009ea434e0323f453dc311f03d980929406af6c44c34897503f0b01e84265e
+      torch-home/hub/snakers4_silero-vad_master/tests/data/test.wav:
+        size: 1920044
+        sha256: 89f17d9c94c4b31eb320f424628bcbc920abaddbee6e2760fd868bfb1d9a2e47
+      torch-home/hub/snakers4_silero-vad_master/tests/test_audio_backends.py:
+        size: 4103
+        sha256: ec981db4dd93bc816ed3b4c69e0cb4c6079d7ea630b7a8a26bd9de30313dd403
+      torch-home/hub/snakers4_silero-vad_master/tests/test_basic.py:
+        size: 1440
+        sha256: 9211653f21693c77cec9bfc48b7061814bda9de85f0c4e33311a30ace2e33c26
+      torch-home/hub/snakers4_silero-vad_master/tests/test_optional_deps.py:
+        size: 3700
+        sha256: cfe2bdd068dfc1209666656546883ba246f8095cfd75dd9844e6bd590a329121
+      torch-home/hub/snakers4_silero-vad_master/tests/test_sequence_parity.py:
+        size: 3706
+        sha256: cecd9ff0904c6ecde4c36012a8c209ecc7d8f2a54cba368805528355ea0406f5
+      torch-home/hub/snakers4_silero-vad_master/tests/test_vad_iterator.py:
+        size: 1116
+        sha256: e24cca107756fa2caad439de3d933160dc92326485c2c0f13837067e144ef132
+      torch-home/hub/snakers4_silero-vad_master/tuning/README.md:
+        size: 7327
+        sha256: c727ad309a9da5230b997963a2753096073267bd9f7a4e8c97dd2fdbf89ed96d
+      torch-home/hub/snakers4_silero-vad_master/tuning/__init__.py:
+        size: 0
+        sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      torch-home/hub/snakers4_silero-vad_master/tuning/config.yml:
+        size: 1917
+        sha256: 06443def6341c8ae6439325a0652dfbb6e01b022d9b31065d84261d0c4f358f0
+      torch-home/hub/snakers4_silero-vad_master/tuning/example_dataframe.feather:
+        size: 3130
+        sha256: d03db5681596414f284ba53c2da52028c0738ae3584cb0865246ff8ef792ce2f
+      torch-home/hub/snakers4_silero-vad_master/tuning/search_thresholds.py:
+        size: 1665
+        sha256: 4b2670739897fc9ed577f52d594b2761a3e96e241ed3fa32841a951efdf908c0
+      torch-home/hub/snakers4_silero-vad_master/tuning/tune.py:
+        size: 3013
+        sha256: b4c2bb3724fa3fc1ae3818c3e0938e24707aa4f9104058546a989faf3fd87aef
+      torch-home/hub/snakers4_silero-vad_master/tuning/utils.py:
+        size: 11805
+        sha256: e1da62037c2171b424e705291fe6eadc3218a3c0514e5773b6ba6d707432f1a6
+      torch-home/hub/trusted_list:
+        size: 20
+        sha256: 78149edec6cc102aaf39a90943a2555e61d598a4d2e577cdc5bb6b2e0fba95ef
+  vad/smart-turn-v3.2:
+    component: turn-detection
+    description: Smart Turn v3.2 end-of-turn classifier (CPU ONNX)
+    source:
+      type: huggingface
+      repo: pipecat-ai/smart-turn-v3
+      revision: f766f81d3cfdf7737ac64aad813d91bbfd56bf93
+      include:
+      - smart-turn-v3.2-cpu.onnx
+    format: ONNX
+    quantization: none
+    license: bsd-2-clause
+    path: vad/smart-turn-v3.2
+    files:
+      smart-turn-v3.2-cpu.onnx:
+        size: 8679182
+        sha256: 2bb026316b14a660486a75b1733cd3fbab8c2fd0314dc9af7be49f8cca967e4f
+  stt/parakeet-tdt-0.6b-v3:
+    component: stt
+    description: NVIDIA Parakeet TDT 0.6B v3, MLX conversion
+    source:
+      type: huggingface
+      repo: mlx-community/parakeet-tdt-0.6b-v3
+      revision: ed2b7e8c15f9aaa0b5772e2efb986255eaef7e15
+    base_model: nvidia/parakeet-tdt-0.6b-v3
+    format: MLX safetensors
+    quantization: none (float32)
+    license: cc-by-4.0
+    path: stt/parakeet-tdt-0.6b-v3
+    files:
+      README.md:
+        size: 1081
+        sha256: 724e3ba46903986ff6caeb8fddb7495c06b5a7a8d908f11e43cc0a7e136b5e23
+      config.json:
+        size: 244093
+        sha256: f320f1292511f34ec47f513755fe20fd01dbfc09a925d42730e66059a6e1ef4c
+      model.safetensors:
+        size: 2508288736
+        sha256: 05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592
+      tokenizer.model:
+        size: 360916
+        sha256: eacec2b0a77f336d4a2ca4a25a7047575d3c2b74de47e997f4c205126ed3135e
+      tokenizer.vocab:
+        size: 101024
+        sha256: 41130ff456706304a1adec782ccc9e003c4d417e8e324353d281be958cac4e17
+      vocab.txt:
+        size: 46772
+        sha256: 3cde1409fd78783a79b29ed4d32da57c746993856f7c8263bcb905d2e5839db7
+  llm/qwen3.5-4b-4bit:
+    component: llm
+    description: Qwen3.5-4B, MLX 4-bit (default "fast" profile)
+    source:
+      type: huggingface
+      repo: mlx-community/Qwen3.5-4B-4bit
+      revision: 0e7ffd5c629ef7719d4cbc04069232580bfa9d9c
+    base_model: Qwen/Qwen3.5-4B
+    format: MLX safetensors
+    quantization: 4-bit affine, group size 64
+    license: apache-2.0
+    path: llm/qwen3.5-4b-4bit
+    files:
+      chat_template.jinja:
+        size: 7756
+        sha256: a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715
+      config.json:
+        size: 3366
+        sha256: f3efc81b2ea8d96a45301037d3ccccbcccdef44a961845c87f286aaddbc6eaaa
+      model.safetensors:
+        size: 3034300695
+        sha256: 5fb9acd0246866381cf8c5c354c6db1019f6498eec4ccb4f5edcc71ffeacb2db
+      model.safetensors.index.json:
+        size: 101944
+        sha256: 52e534c41f7b97708329c85f762e5882bf48bd5955a422c6ae74eba321e6048a
+      preprocessor_config.json:
+        size: 390
+        sha256: 27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516
+      processor_config.json:
+        size: 1300
+        sha256: 14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b
+      tokenizer.json:
+        size: 19989343
+        sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      tokenizer_config.json:
+        size: 1139
+        sha256: e98f1901ac6f0adff67b1d540bfa0c36ac1a0cf59eb72ed78146ef89aafa1182
+      video_preprocessor_config.json:
+        size: 385
+        sha256: 7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13
+      vocab.json:
+        size: 6722759
+        sha256: ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003
+  llm/qwen3.5-9b-4bit:
+    component: llm
+    description: Qwen3.5-9B, MLX 4-bit (optional "quality" profile)
+    source:
+      type: huggingface
+      repo: mlx-community/Qwen3.5-9B-4bit
+      revision: 8b2b98c00a6b4d291155e4890773ca8f769aee53
+    base_model: Qwen/Qwen3.5-9B
+    format: MLX safetensors
+    quantization: 4-bit affine, group size 64
+    license: apache-2.0
+    path: llm/qwen3.5-9b-4bit
+    files:
+      README.md:
+        size: 666
+        sha256: 1407e3e3337063c280b2fe1a63724908a5051cfbf26cd8b98f247432b0382537
+      chat_template.jinja:
+        size: 7756
+        sha256: a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715
+      config.json:
+        size: 3331
+        sha256: a96942cb6a8a1d3f1d17514d81a1925d04362a6a3233b389d13012211baaa9f8
+      model-00001-of-00002.safetensors:
+        size: 5349771222
+        sha256: a68b87558c6ef43f74c2bd63ce7e9092ceddc3101f3def0030774bae5f42aadd
+      model-00002-of-00002.safetensors:
+        size: 600449850
+        sha256: b0a770bf8469c7f3f18756a0e0283f1c1174344a83e059a4e483f6af4907352d
+      model.safetensors.index.json:
+        size: 123592
+        sha256: dd023913fb87cfdae27fb11dcf695117c925833796ccac3c64117d6652d8ff1e
+      preprocessor_config.json:
+        size: 390
+        sha256: 27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516
+      processor_config.json:
+        size: 1300
+        sha256: 14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b
+      tokenizer.json:
+        size: 19989343
+        sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      tokenizer_config.json:
+        size: 1139
+        sha256: e98f1901ac6f0adff67b1d540bfa0c36ac1a0cf59eb72ed78146ef89aafa1182
+      video_preprocessor_config.json:
+        size: 385
+        sha256: 7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13
+      vocab.json:
+        size: 6722759
+        sha256: ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003
+  tts/qwen3-tts-1.7b-base-6bit:
+    component: tts
+    description: Qwen3-TTS 12 Hz 1.7B Base, MLX 6-bit; Voice Studio cloning from authorized reference audio (optional)
+    source:
+      type: huggingface
+      repo: mlx-community/Qwen3-TTS-12Hz-1.7B-Base-6bit
+      revision: 34ff5318365b59cba9c03ff729f2eee0814caf72
+    base_model: Qwen/Qwen3-TTS-12Hz-1.7B-Base
+    format: MLX safetensors
+    quantization: 6-bit affine, group size 64
+    license: apache-2.0
+    path: tts/qwen3-tts-1.7b-base-6bit
+    files:
+      README.md:
+        size: 1026
+        sha256: 96aaa7ab7902b63bf1c36ca5752d8b7fc2a861f742aa670bda9240f6e3773a9a
+      config.json:
+        size: 5522
+        sha256: 8aca8f809e990d7366e15a34e6a9086818782054731e958f7d8eed530475acba
+      generation_config.json:
+        size: 245
+        sha256: f1b90b4513f3b34c62851049e2492d7b4c5940daf1276f89c82b8ef04127f3aa
+      merges.txt:
+        size: 1671839
+        sha256: 599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3
+      model.safetensors:
+        size: 2033279427
+        sha256: b043693cb63f38f4e0ae5fe39a5cfdb466ef199dc5a767991a4a46235ac27e67
+      model.safetensors.index.json:
+        size: 78070
+        sha256: 64ee2320faa62f4faa10f31b9e915f9949a41e4bdc76b660a18d1b7ec854232d
+      preprocessor_config.json:
+        size: 127
+        sha256: efdde1022ea9d76928bf7a9cd53139138f5ba2e466e837f08f6105ab1af1c119
+      speech_tokenizer/config.json:
+        size: 2336
+        sha256: ee65bb901c876664ab8707c487157aa1a6ee57c65969b28fb5ec9dc211e68167
+      speech_tokenizer/configuration.json:
+        size: 76
+        sha256: 6bc26d64eb5024b4d1dab5a52371958b429256d6c9d59787f1f5294a54e0cebd
+      speech_tokenizer/model.safetensors:
+        size: 682293092
+        sha256: 836b7b357f5ea43e889936a3709af68dfe3751881acefe4ecf0dbd30ba571258
+      speech_tokenizer/preprocessor_config.json:
+        size: 234
+        sha256: fcb3805e597e786d4067706e602f6688524640f8d3396790e2e09b5942fcbdfb
+      tokenizer_config.json:
+        size: 7344
+        sha256: dc3c31c3bdaedd5016382bb3cbe07323026775ad51f5a4fb564505992ae4a670
+      vocab.json:
+        size: 2776833
+        sha256: ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910
+  tts/qwen3-tts-1.7b-voicedesign-6bit:
+    component: tts
+    description: Qwen3-TTS 12 Hz 1.7B VoiceDesign, MLX 6-bit; Voice Studio voices from a text description (optional)
+    source:
+      type: huggingface
+      repo: mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-6bit
+      revision: ffc6545dc9cb086950aa46c6cd3db490e6ece3e1
+    base_model: Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+    format: MLX safetensors
+    quantization: 6-bit affine, group size 64
+    license: apache-2.0
+    path: tts/qwen3-tts-1.7b-voicedesign-6bit
+    files:
+      README.md:
+        size: 1068
+        sha256: 091c543f4d188671e8c01476bd834977607b403272c40a863e195d54baad56ad
+      config.json:
+        size: 5437
+        sha256: d4f2a4660fdc93e26dae802fadfaf7f5460304f9808715aa3fe2bb4823a6a7bf
+      generation_config.json:
+        size: 245
+        sha256: f1b90b4513f3b34c62851049e2492d7b4c5940daf1276f89c82b8ef04127f3aa
+      merges.txt:
+        size: 1671839
+        sha256: 599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3
+      model.safetensors:
+        size: 2009267875
+        sha256: fb3c35f8ca4165f8824ddfd3f4ba97266bd699b3fb003e3a39084f9d3664ce87
+      model.safetensors.index.json:
+        size: 71786
+        sha256: 4665ebf9c3566d4072268b265de621342ad3c1676cc344dfdb63f7a173bd0bd6
+      preprocessor_config.json:
+        size: 127
+        sha256: efdde1022ea9d76928bf7a9cd53139138f5ba2e466e837f08f6105ab1af1c119
+      speech_tokenizer/config.json:
+        size: 2336
+        sha256: ee65bb901c876664ab8707c487157aa1a6ee57c65969b28fb5ec9dc211e68167
+      speech_tokenizer/configuration.json:
+        size: 76
+        sha256: 6bc26d64eb5024b4d1dab5a52371958b429256d6c9d59787f1f5294a54e0cebd
+      speech_tokenizer/model.safetensors:
+        size: 682293092
+        sha256: 836b7b357f5ea43e889936a3709af68dfe3751881acefe4ecf0dbd30ba571258
+      speech_tokenizer/preprocessor_config.json:
+        size: 234
+        sha256: fcb3805e597e786d4067706e602f6688524640f8d3396790e2e09b5942fcbdfb
+      tokenizer_config.json:
+        size: 7344
+        sha256: dc3c31c3bdaedd5016382bb3cbe07323026775ad51f5a4fb564505992ae4a670
+      vocab.json:
+        size: 2776833
+        sha256: ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910
+  tts/qwen3-tts-1.7b-customvoice-6bit:
+    component: tts
+    description: Qwen3-TTS 12 Hz 1.7B CustomVoice, MLX 6-bit, used with a built-in preset speaker (no cloning)
+    source:
+      type: huggingface
+      repo: mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-6bit
+      revision: 1c6c0ff58c43afa8df571facde2efa077efd85e2
+    base_model: Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+    format: MLX safetensors
+    quantization: 6-bit affine, group size 64
+    license: apache-2.0
+    path: tts/qwen3-tts-1.7b-customvoice-6bit
+    files:
+      README.md:
+        size: 1068
+        sha256: a8f9a00254a4f4b22a45607fdcbe62f06d7ab68640278ed22a759c5e1b53202c
+      config.json:
+        size: 6058
+        sha256: 25ec849dd2502e11f66accb903e9c069e49724925f4755c52deaa5134b44d5a9
+      generation_config.json:
+        size: 245
+        sha256: f1b90b4513f3b34c62851049e2492d7b4c5940daf1276f89c82b8ef04127f3aa
+      merges.txt:
+        size: 1671839
+        sha256: 599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3
+      model.safetensors:
+        size: 2009267875
+        sha256: 097b66a8c63570b88abc2fb393d1dc2360394ca7741c818455ba9da257ac2f3b
+      model.safetensors.index.json:
+        size: 71786
+        sha256: 4665ebf9c3566d4072268b265de621342ad3c1676cc344dfdb63f7a173bd0bd6
+      preprocessor_config.json:
+        size: 127
+        sha256: efdde1022ea9d76928bf7a9cd53139138f5ba2e466e837f08f6105ab1af1c119
+      speech_tokenizer/config.json:
+        size: 2336
+        sha256: ee65bb901c876664ab8707c487157aa1a6ee57c65969b28fb5ec9dc211e68167
+      speech_tokenizer/configuration.json:
+        size: 76
+        sha256: 6bc26d64eb5024b4d1dab5a52371958b429256d6c9d59787f1f5294a54e0cebd
+      speech_tokenizer/model.safetensors:
+        size: 682293092
+        sha256: 836b7b357f5ea43e889936a3709af68dfe3751881acefe4ecf0dbd30ba571258
+      speech_tokenizer/preprocessor_config.json:
+        size: 234
+        sha256: fcb3805e597e786d4067706e602f6688524640f8d3396790e2e09b5942fcbdfb
+      tokenizer_config.json:
+        size: 7344
+        sha256: dc3c31c3bdaedd5016382bb3cbe07323026775ad51f5a4fb564505992ae4a670
+      vocab.json:
+        size: 2776833
+        sha256: ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910
+  text/nltk-data:
+    component: text
+    description: NLTK tokenizer / tagger data that upstream needs for sentence splitting
+    source:
+      type: nltk
+      packages:
+      - punkt_tab
+      - averaged_perceptron_tagger_eng
+    format: NLTK data packages
+    quantization: none
+    license: apache-2.0
+    path: text/nltk-data
+    files:
+      taggers/averaged_perceptron_tagger_eng/averaged_perceptron_tagger_eng.classes.json:
+        size: 285
+        sha256: d152ffa69d45b8357276341a3d592c6c025911d52ec0d9068d4f382560dd48b6
+      taggers/averaged_perceptron_tagger_eng/averaged_perceptron_tagger_eng.tagdict.json:
+        size: 25788
+        sha256: 4c713731cb06727736962bc8cd94ad919217a040e76691059af99bc0c2c9c246
+      taggers/averaged_perceptron_tagger_eng/averaged_perceptron_tagger_eng.weights.json:
+        size: 5677744
+        sha256: 789e8e35f6fac656d9b7eccea29ba4e8a137cbb5b525dd31f39e4291a9e80832
+      tokenizers/punkt_tab/README:
+        size: 8574
+        sha256: d3251cae66a9359bd68c039e3a46172a05ca9df0b27dcdfa23ae594d68d27ec4
+      tokenizers/punkt_tab/czech/abbrev_types.txt:
+        size: 462
+        sha256: 8eb1feb5a6a46f9bd8f6a5ae58e218428a65b459b5ebd61668d83fa80acfc329
+      tokenizers/punkt_tab/czech/collocations.tab:
+        size: 1390
+        sha256: fd58f549658c8389be32577e232187be9376c79708f66c60388a84916c8f3f3d
+      tokenizers/punkt_tab/czech/ortho_context.tab:
+        size: 684150
+        sha256: 451cb1a68a03ba88ced1247e6bb48c442e87dce1c9f463104618fac509866cd4
+      tokenizers/punkt_tab/czech/sent_starters.txt:
+        size: 352
+        sha256: 42f1de18ab29f9842113b87ec020202c0c25316c97d37f968435a7c7ee3018ca
+      tokenizers/punkt_tab/danish/abbrev_types.txt:
+        size: 1130
+        sha256: 4a358b26b7ba372cab3cedeb43b4e99a76ae9d01150493964141eb42a62e4a6e
+      tokenizers/punkt_tab/danish/collocations.tab:
+        size: 1693
+        sha256: b003d3b839afd47afa81d64620a1cf15b75b944212a7f3ee6a7571f041ae02ec
+      tokenizers/punkt_tab/danish/ortho_context.tab:
+        size: 743835
+        sha256: 59d7ccda7b1eef6cbcddb6d2f1930c255a5d43600e66e32eff28eab8190c0727
+      tokenizers/punkt_tab/danish/sent_starters.txt:
+        size: 415
+        sha256: f8dd41bdb1bb633574b22d38205e1c073639a0b80cb9591964bf92d84317527f
+      tokenizers/punkt_tab/dutch/abbrev_types.txt:
+        size: 434
+        sha256: dcd4af07101692c986049ba07abcd6b7c1a2464ef4e46a932cf92d6e220388dd
+      tokenizers/punkt_tab/dutch/collocations.tab:
+        size: 623
+        sha256: 9a013563bce4637595a6db9d2eeb0ab3f68685d704ae20d97ad718aa91afbe4a
+      tokenizers/punkt_tab/dutch/ortho_context.tab:
+        size: 428403
+        sha256: e2077b5748564a9666e437c0a96ea9c5bed0fe3ab5c756535584785d3af20fc9
+      tokenizers/punkt_tab/dutch/sent_starters.txt:
+        size: 310
+        sha256: 734454acc5952d91a1dfaca8cdfdabb715d8cdd35789c749528639d80751f45c
+      tokenizers/punkt_tab/english/abbrev_types.txt:
+        size: 619
+        sha256: 92a3e070f43d9b4c5534758ca40ad7343b04e7e29bfe0c2eb658a39445a4f779
+      tokenizers/punkt_tab/english/collocations.tab:
+        size: 594
+        sha256: 8e2da1225e4dd2cc9dba261ee231ccb134859e21b46006e7f472c5ee269af0cf
+      tokenizers/punkt_tab/english/ortho_context.tab:
+        size: 236303
+        sha256: 4bbcca25ed3d3f06c02402abf8419b9f033b8adc06e7b482eca4e45f81a5dc4c
+      tokenizers/punkt_tab/english/sent_starters.txt:
+        size: 241
+        sha256: f3f8535483e1dba487241b764945168123bca3209a9645e59acd1225dc76edac
+      tokenizers/punkt_tab/estonian/abbrev_types.txt:
+        size: 224
+        sha256: 0307878fb32af1e21d8f3ba0644e39c89602f2f8aa4e4304943f7e9e0fd081b2
+      tokenizers/punkt_tab/estonian/collocations.tab:
+        size: 1825
+        sha256: f1400a7ebf3c82a3d5aac886eb5bf06a1a840946cf052bb1532da7c25094797f
+      tokenizers/punkt_tab/estonian/ortho_context.tab:
+        size: 936992
+        sha256: 768b7e6e2ba93ff096e244af175c343b1a73463c4a1b99beebe6a9aa57ea1d78
+      tokenizers/punkt_tab/estonian/sent_starters.txt:
+        size: 679
+        sha256: 7ade7bb8ca7c527aac09517a6efbdf4f749e9a9fc0e43d2856c58be847030c83
+      tokenizers/punkt_tab/finnish/abbrev_types.txt:
+        size: 484
+        sha256: 7829baabcb5d69e26232839a1f5b6bc6d12b0e59b7f0a65f6ab1c163acbeb800
+      tokenizers/punkt_tab/finnish/collocations.tab:
+        size: 3046
+        sha256: 4d717a1b4d1fb7108ca9c9ed2cc63f8b4813cfaf73819e96fce79495ddc48292
+      tokenizers/punkt_tab/finnish/ortho_context.tab:
+        size: 1189717
+        sha256: 43e55a8bfa977561337a09105c570036df11346c6f91e57d8631520eefb26167
+      tokenizers/punkt_tab/finnish/sent_starters.txt:
+        size: 810
+        sha256: ab81cf3b774ef068ac98adb99fcb3b1a05caf0423bdfa302bdc285e15597567f
+      tokenizers/punkt_tab/french/abbrev_types.txt:
+        size: 245
+        sha256: 01747ecfed08830d582d8c94634b63a36da316c0a67feec2871cf03f0dd5c657
+      tokenizers/punkt_tab/french/collocations.tab:
+        size: 334
+        sha256: 8ddf150ef5a0d22694e7c4d807f80b6d55da731ca81ea139633f560b378af990
+      tokenizers/punkt_tab/french/ortho_context.tab:
+        size: 334275
+        sha256: 7090ef4292647d4fe137159bd768a5304015d0614d59fdcfc30b2389634365ac
+      tokenizers/punkt_tab/french/sent_starters.txt:
+        size: 233
+        sha256: b45a1ebdae9cdf46cf2e8be016b4718bf4f825445fc783d445faf0cfb2d569f8
+      tokenizers/punkt_tab/german/abbrev_types.txt:
+        size: 246
+        sha256: 259e5d78bc9d61a12d55ba47552c4e9c5ca08364d78a4669e864fd6de86818e3
+      tokenizers/punkt_tab/german/collocations.tab:
+        size: 527
+        sha256: f77bd513f42e8179f5c932111c312be353d5913387d0bfe90a95c109111bca25
+      tokenizers/punkt_tab/german/ortho_context.tab:
+        size: 943500
+        sha256: 023887e78cfb919f1a00f9a96a88f42131582748cf833fd469490ee66596307c
+      tokenizers/punkt_tab/german/sent_starters.txt:
+        size: 762
+        sha256: fe4b63edbdd33f78ba0a755f035680a864948b145ae82fc99072440a62a77acd
+      tokenizers/punkt_tab/greek/abbrev_types.txt:
+        size: 570
+        sha256: 0d56253b7ebc83f0f2403479bcf2b8ea51ffdea89ee60e34018eb32e4750d683
+      tokenizers/punkt_tab/greek/collocations.tab:
+        size: 118
+        sha256: 0fd732534d56177c80874125ca894ae60aee7b052ee2865a405b454cfd737a6f
+      tokenizers/punkt_tab/greek/ortho_context.tab:
+        size: 632838
+        sha256: a87e4467791f974f808c0d396f6c82cd3a014d4fb4458a2287e2fcbce7084e9c
+      tokenizers/punkt_tab/greek/sent_starters.txt:
+        size: 567
+        sha256: 1a450aec85164e3fbfeb814768c9f120abd7139726af5bb5e2a577096739ca8e
+      tokenizers/punkt_tab/italian/abbrev_types.txt:
+        size: 534
+        sha256: 5d406f6bfb35e55f6bea282bf148bdcc9e4677860eb01a8e67c34b894274ac50
+      tokenizers/punkt_tab/italian/collocations.tab:
+        size: 53
+        sha256: 8167b58a049bb04de8d692ed33d72963503a061717cd37cacb33bb2d00669caf
+      tokenizers/punkt_tab/italian/ortho_context.tab:
+        size: 369822
+        sha256: 462ffd48bc1c9b86efe66d04d826cd1e7a5745be871b8121759ed2920a967370
+      tokenizers/punkt_tab/italian/sent_starters.txt:
+        size: 208
+        sha256: 4dc2cdfda34d4f286e5875d6b62b148771a799a71f0d45b504da23cb61b59d51
+      tokenizers/punkt_tab/malayalam/abbrev_types.txt:
+        size: 4714
+        sha256: 1ea2cd01629c8cbeac0799d39383e10c4d6948734c255d37e3ceda550ba62464
+      tokenizers/punkt_tab/malayalam/collocations.tab:
+        size: 3422
+        sha256: 71bc38e42133f288c660a338169d8858944135282ad4166a2c5d23cc8a06ed73
+      tokenizers/punkt_tab/malayalam/ortho_context.tab:
+        size: 118161
+        sha256: 5289e43f46ef3679f4ebbed95ef1fad5b64dd7aa8957042adb2b661cc6ae4425
+      tokenizers/punkt_tab/malayalam/sent_starters.txt:
+        size: 106
+        sha256: 918c902aa9d0b72700410258274ae335da51148fee7fc27095ab4114b23a245c
+      tokenizers/punkt_tab/norwegian/abbrev_types.txt:
+        size: 496
+        sha256: beced74076edabe64f45effb823012d1396db41f35fa1d8be2ac6b69bf7bc40f
+      tokenizers/punkt_tab/norwegian/collocations.tab:
+        size: 869
+        sha256: 9c815b01e2f7518552b53f09012644df1fa0d8c7642baff9dc5f61e85e0be422
+      tokenizers/punkt_tab/norwegian/ortho_context.tab:
+        size: 734070
+        sha256: 57ea2aa129de6ae414cd0cbecba8b2399c4fde775a2145776a7e8f1023f3f183
+      tokenizers/punkt_tab/norwegian/sent_starters.txt:
+        size: 378
+        sha256: 2b49ef0f0c2e1b4e8b06aee1172e4d88ce6ad01486fe4182cff6fc443a73ddeb
+      tokenizers/punkt_tab/polish/abbrev_types.txt:
+        size: 973
+        sha256: 426ea37ca486d0dcc3653653c613d853d0bb3929037f8ee6bf6c12ddae873aa1
+      tokenizers/punkt_tab/polish/collocations.tab:
+        size: 1101
+        sha256: 961653f0606d85ecb8a760cad4f69df123f010bc4b35de0253feb2d7869666b4
+      tokenizers/punkt_tab/polish/ortho_context.tab:
+        size: 1066577
+        sha256: f770804067012ee5707ffc65d90523180e09bab09230a49251777be821a1a4f6
+      tokenizers/punkt_tab/polish/sent_starters.txt:
+        size: 518
+        sha256: 8564076ae22be3d549a3f097a18458ac2967d65bd28dad7cc223c53f5ce27d1b
+      tokenizers/punkt_tab/portuguese/abbrev_types.txt:
+        size: 301
+        sha256: cd5c3cf9c4c8b766bc9edbc96444b0e2189b837b26c583aa2cce83a18e4285f5
+      tokenizers/punkt_tab/portuguese/collocations.tab:
+        size: 64
+        sha256: a150d2ca3b8bd9d87cd25f2e1d2142607cdf9344efe914bd034af6017a16d841
+      tokenizers/punkt_tab/portuguese/ortho_context.tab:
+        size: 363124
+        sha256: 2d9c143f7b322fc74738a21e0b2b04feed1668245ac93e5a8e5399e6e0d8ed8a
+      tokenizers/punkt_tab/portuguese/sent_starters.txt:
+        size: 209
+        sha256: 7b7f4a1586b1df8592bf294c8dd0d19aaf90740d78ce3b40a31eff2b9669d15e
+      tokenizers/punkt_tab/russian/abbrev_types.txt:
+        size: 15363
+        sha256: 75191526be516a9918948fe3ad46f6c2c4dee14314359a899b8c2ebf496cb631
+      tokenizers/punkt_tab/russian/collocations.tab:
+        size: 0
+        sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      tokenizers/punkt_tab/russian/ortho_context.tab:
+        size: 10
+        sha256: b296cba91006569d3ef79eb2cff2378bf5be5b75e9e83ea119b883d3c3ee69b6
+      tokenizers/punkt_tab/russian/sent_starters.txt:
+        size: 0
+        sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      tokenizers/punkt_tab/slovene/abbrev_types.txt:
+        size: 280
+        sha256: b1d6b16d1d2b3c0c4132c1528b9843d1557f7f544044db27f4e8d2d6985faf2b
+      tokenizers/punkt_tab/slovene/collocations.tab:
+        size: 1131
+        sha256: 4c10daafdff496e369f3a8809bebf187abc851df630457ae93c7ca4fda350651
+      tokenizers/punkt_tab/slovene/ortho_context.tab:
+        size: 445129
+        sha256: 3ba826bdd7e5543af7af8e317d4652ba8b47fd812157855a6274ec1387a46b3e
+      tokenizers/punkt_tab/slovene/sent_starters.txt:
+        size: 358
+        sha256: 85ae14dadef3c4c9f753491d84919abb10e09003adfe248794d4a597fabc5793
+      tokenizers/punkt_tab/spanish/abbrev_types.txt:
+        size: 234
+        sha256: 246a4b3efbad45b63eb9672b718574b535acef6d656f24dc17a46d13a38efba1
+      tokenizers/punkt_tab/spanish/collocations.tab:
+        size: 74
+        sha256: fa5ea7dbf61f2b1c12180d660a3012c9faaf4962eb12549d77af95e2a40be65d
+      tokenizers/punkt_tab/spanish/ortho_context.tab:
+        size: 337707
+        sha256: 1346ecfc57b26174987ffa9bd4a2558a66f46592a513da3859648790351df370
+      tokenizers/punkt_tab/spanish/sent_starters.txt:
+        size: 289
+        sha256: 4d4f7380ba16380b6158e9e8ead6973c52f27e3c9c88af63f15a41c490998319
+      tokenizers/punkt_tab/swedish/abbrev_types.txt:
+        size: 208
+        sha256: 1e1a78bd5e7fd6e7eb4b15b751a23d441cda845d5fc0b631958177b2f504da00
+      tokenizers/punkt_tab/swedish/collocations.tab:
+        size: 136
+        sha256: bd2260433c94617ba7cf6102e4c1035099a72e5a2f6b60734639252e41633c04
+      tokenizers/punkt_tab/swedish/ortho_context.tab:
+        size: 616904
+        sha256: d48c5705d0570993628e539ca211f05cdb5aad7adfcc6ed7b24310941bfac9f8
+      tokenizers/punkt_tab/swedish/sent_starters.txt:
+        size: 295
+        sha256: 6f0f7a6773f7488a23bafc6c29e7d4554e792d89c6b7a89fbd6a83bec85ef767
+      tokenizers/punkt_tab/turkish/abbrev_types.txt:
+        size: 424
+        sha256: de56078c5eeb3fe07e24eab67c4aaf44e2181cbe80edd976cb1622819599d6fd
+      tokenizers/punkt_tab/turkish/collocations.tab:
+        size: 273
+        sha256: 061ce2981776a8f875da4f24bebd7e138f8da1d9057b43d07f580148ec106a33
+      tokenizers/punkt_tab/turkish/ortho_context.tab:
+        size: 642682
+        sha256: fc214227f99d5ea3ee70d208df16b1984eab375d1946ed379061c6cf5c1718be
+      tokenizers/punkt_tab/turkish/sent_starters.txt:
+        size: 613
+        sha256: 93239fb55b5d2ae6d945a84a94e118ba8a816326b17cdc11ba8111bea0c97828

@@ -1,0 +1,12 @@
+{
+  "conversation": {
+    "path": "/",
+    "label": "Conversation",
+    "persona": "numa-assistant",
+    "hostName": "Numa",
+    "speakerLabel": "Numa",
+    "idleDetail": "Start a spoken conversation with Numa, about anything.",
+    "startLabel": "Start conversation",
+    "endLabel": "End conversation"
+  }
+}

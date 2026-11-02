@@ -1,0 +1,7 @@
+# Default profile: Qwen3.5-4B (MLX 4-bit). Median 1.1 s from end of speech to first audio, ~8.4 GB.
+numa:
+  description: Qwen3.5-4B 4-bit, the default
+blocks:
+  llm:
+    settings:
+      model_name: numa-model:llm/qwen3.5-4b-4bit
